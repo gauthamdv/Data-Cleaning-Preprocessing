@@ -1,82 +1,113 @@
+# 🧹 Data Cleaning and Preprocessing
 
-# Data Cleaning & Preprocessing
+This repository provides a comprehensive **Data Preprocessing Toolkit** using Python. It includes both an **interactive Jupyter Notebook** and a **Python script** to clean, encode, scale, and handle outliers in your dataset.
 
-## Overview
+The pipeline is designed to handle **numerical and categorical data**, with options for automatic or user-guided preprocessing.
 
-This repository is a hands-on guide to **data cleaning and preprocessing** in Python. It is designed for beginners who want to understand how to transform raw data into a clean, structured, and ready-to-use format for machine learning tasks.
+---
 
-The project uses the **Titanic dataset** as an example and demonstrates step-by-step methods to handle missing values, remove duplicates, encode categorical features, scale numerical features, detect outliers, and visualize data for better understanding.
+## 📁 Project Structure
 
-## Features
-
-- Identify and handle **missing values** in numeric and categorical columns.
-- Remove **duplicate rows** to ensure data integrity.
-- Convert **categorical features** into numerical format using:
-  - Label Encoding  
-  - One-Hot Encoding
-- **Standardize or normalize numerical features** for better comparability.
-- Detect and remove **outliers interactively** using IQR.
-- Visualize **feature distributions** and **normalized cardinality**.
-- Compare datasets **before and after preprocessing**.
-
-## Getting Started
-
-### Requirements
-
-- Python 3.x
-- Pandas
-- NumPy
-- Matplotlib
-- Scikit-learn
-
-You can install the required packages using:
-
-```bash
-pip install pandas numpy matplotlib scikit-learn
 ```
+.
+├── datasets/
+│   ├── Titanic-Dataset.csv       # Example dataset
+│   └── ...                       # Your other datasets
+├── data_preprocessing.ipynb      # Interactive notebook
+├── data_preprocessing.py         # Python script for automated preprocessing
+├── README.md                     # This file
+└── requirements.txt              # Python dependencies
+```
+
+---
+
+## 🛠 Features
+
+### 1️⃣ Data Exploration
+
+* View dataset info, missing values, duplicates, and unique value counts.
+* Inspect numeric and non-numeric data summaries.
+
+### 2️⃣ Missing Value Imputation
+
+* **Numerical columns**: Fill missing values with the median.
+* **Categorical columns**: Fill missing values with the mode.
+* Optionally drop columns exceeding a **missing data threshold**.
+
+### 3️⃣ Encoding Categorical Data
+
+* Label Encoding for binary or high-cardinality columns.
+* One-Hot Encoding for categorical columns with few unique values.
+* Option to skip columns if desired.
+
+### 4️⃣ Scaling Numerical Data
+
+* Standardization (Z-score) or Normalization (Min-Max) for numeric features.
+* Option to skip columns as required.
+
+### 5️⃣ Outlier Detection & Handling
+
+* Detect outliers in numeric columns using IQR.
+* Drop columns exceeding outlier percentage or cardinality thresholds.
+
+### 6️⃣ Visualization
+
+* Bar plots for missing values.
+* Line plots for normalized cardinality of numeric columns.
+* Histograms comparing numeric columns before and after preprocessing.
+
+### 7️⃣ Save Processed Data
+
+* Save the cleaned dataset as a CSV file.
+
+---
+
+## ⚡ Usage
 
 ### Using the Jupyter Notebook
 
-1. Open `DataCleaning_Preprocessing.ipynb` in Jupyter Notebook.
-2. Follow the notebook step-by-step:
-   - Import packages
-   - Load the dataset
-   - Explore missing values and duplicates
-   - Handle categorical and numerical features
-   - Encode categorical data
-   - Scale numerical features
-   - Detect and remove outliers interactively
-   - Visualize and compare datasets
-3. The notebook is **interactive** and will prompt you for decisions such as:
-   - Dropping columns with too many missing values
-   - Encoding categorical variables
-   - Scaling or skipping numerical columns
-   - Removing columns based on outlier percentage or cardinality
+1. Open `data_preprocessing.ipynb` in Jupyter Notebook.
+2. Update the dataset path if required (`datasets/Titanic-Dataset.csv`).
+3. Run the cells step by step to explore and preprocess your data interactively.
 
 ### Using the Python Script (Automated)
 
-For a more **automated approach**, you can use the Python script version `data_cleaning.py`. Simply run:
+1. Update the `load_path` and `save_path` in `data_preprocessing.py`.
+2. Run the script:
 
 ```bash
-python data_cleaning.py
+python data_preprocessing.py
 ```
 
-This script applies the same preprocessing steps as the notebook but without interactive prompts, making it suitable for batch preprocessing or pipeline integration.
+3. Follow the prompts to handle missing data, encoding, scaling, and outliers.
+4. Optionally save the preprocessed dataset.
 
-## Dataset
+---
 
-The notebook uses the **Titanic dataset** as an example. You can replace it with any dataset, but ensure that you adjust column names if needed.
+## 📦 Requirements
 
-Download the Titanic dataset [here](https://www.kaggle.com/c/titanic/data).
+Install dependencies using pip:
 
-## Outputs
+```bash
+pip install -r requirements.txt
+```
 
-- Cleaned dataset ready for machine learning tasks.
-- Visualizations showing:
-  - Normalized cardinality of numeric features
-  - Changes in numeric features before and after preprocessing
+**requirements.txt:**
 
-## Contributing
+```
+pandas
+numpy
+matplotlib
+scikit-learn
+```
 
-Feel free to submit issues, suggestions, or pull requests if you want to improve this repository.
+---
 
+## 💡 Notes
+
+* Paste your dataset in the `datasets/` folder and update the variables in the main() of the program
+* Datasets will be stored in the `datasets/` folder by default.
+* Thresholds for missing values, outliers, and cardinality can be adjusted in the script.
+* This pipeline supports both interactive and automated preprocessing workflows.
+
+---
