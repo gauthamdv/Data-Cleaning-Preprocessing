@@ -80,6 +80,3 @@ Download the Titanic dataset [here](https://www.kaggle.com/c/titanic/data).
 
 Feel free to submit issues, suggestions, or pull requests if you want to improve this repository.
 
-## License
-
-This project is open-source and available under the MIT License.
