@@ -293,7 +293,7 @@ class DataPreprocessor:
         
     def save_file(self, path = None):
         if path: 
-            self.df.to_csv(path)
+            self.df.to_csv(path, index=False)
         else:
             print('Please enter a Valid path')
         
